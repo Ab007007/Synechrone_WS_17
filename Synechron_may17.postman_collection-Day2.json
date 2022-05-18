@@ -1,0 +1,718 @@
+{
+	"info": {
+		"_postman_id": "767e0eac-d75e-4e93-9b7b-56463ffdb724",
+		"name": "Synechron_may17",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "httpbin",
+			"item": [
+				{
+					"name": "statuscode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "httpbin.org/status/400",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"status",
+								"400"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FirstRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Aravind\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "httpbin.org/get",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json()\r",
+									"pm.globals.set(\"uuid\",response.uuid)\r",
+									"\r",
+									"// let ids  = response.uuid.toString().split(\"-\")\r",
+									"// for(let i=0 ; i<ids.length(); i++){\r",
+									"//     pm.set(\"ids\" + i , ids[i])\r",
+									"// }"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "httpbin.org/uuid",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"uuid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "statuscode-patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "httpbin.org/status/400",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"status",
+								"400"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QueryParametersDemo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Aravind\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "httpbin.org/get?name=Aravind&age=40",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Aravind"
+								},
+								{
+									"key": "age",
+									"value": "40"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QueryParametersPOST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "httpbin.org/post?name=Aravind&age=40",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Aravind"
+								},
+								{
+									"key": "age",
+									"value": "40"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetWithExternalData",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"}); \r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Aravind\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "httpbin.org/get?name=Aravind&age=40&uuid={{uuid}}",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Aravind"
+								},
+								{
+									"key": "age",
+									"value": "40"
+								},
+								{
+									"key": "uuid",
+									"value": "{{uuid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trello",
+			"item": [
+				{
+					"name": "GET_BOARD",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{id}}?key=c5f676759b86029624f7dcb31ccf655e&token=9b60bd7325defc221aa0203822765f426ecb134adcf46f7ca823c569ced3a2f3",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "c5f676759b86029624f7dcb31ccf655e"
+								},
+								{
+									"key": "token",
+									"value": "9b60bd7325defc221aa0203822765f426ecb134adcf46f7ca823c569ced3a2f3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"let response = pm.response.json()\r",
+									"pm.environment.set(\"id\",response.shortUrl.split(\"/\")[4])\r",
+									"pm.environment.set(\"board_id\",response.id)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let boardNAme = \"Automation_Board\" + parseInt(Math.random()*1000)\r",
+									"pm.environment.set(\"board_name\",boardNAme)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/?name=MyAPIBoard&key={{key}}&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "MyAPIBoard"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBoard",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.unset(\"id\")\r",
+									"pm.environment.unset(\"board_id\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{id}}?key={{key}}&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json()\r",
+									"pm.environment.set(\"list_id\", response.id)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let listName = \"TODO_LIST_\" + parseInt(Math.random()*1000)\r",
+									"pm.environment.set(\"list_name\",listName)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/lists?name={{list_name}}&idBoard={{board_id}}&key={{key}}&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{list_name}}"
+								},
+								{
+									"key": "idBoard",
+									"value": "{{board_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCard",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json()\r",
+									"pm.environment.set(\"latest_card_id\", response.id)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let cardName = \"TODO_Task_\" + parseInt(Math.random()*1000)\r",
+									"pm.environment.set(\"card_name\",cardName)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/cards?idList={{list_id}}&key={{key}}&token={{token}}&name={{card_name}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{list_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "{{card_name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "github",
+			"item": [
+				{
+					"name": "GetAllPublicRepos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.github.com/repositories",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"repositories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserRepository",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.github.com/users/Ab007007/repos",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"users",
+								"Ab007007",
+								"repos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateRepository",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json()\r",
+									"pm.environment.set(\"repository_full_name\", response.full_name)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let repoName = \"Synechron_API_Generated_Repo_\" + parseInt(Math.random()*1000)\r",
+									"pm.environment.set(\"repoName\",repoName)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"  : \"Synechron_API_Generated_Repo\",\r\n    \"description\" : \"Test POST API in GITHUB\",\r\n    \"private\" : false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/repos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"repos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRepository",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/repos/Ab007007/Synechron_API_Generated_Repo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"repos",
+								"Ab007007",
+								"Synechron_API_Generated_Repo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
