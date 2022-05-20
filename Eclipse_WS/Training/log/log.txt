@@ -1,0 +1,106 @@
+Request method:	GET
+Request URI:	https://api.trello.com/1/boards/OIyIpjvA?key=c5f676759b86029624f7dcb31ccf655e&token=9b60bd7325defc221aa0203822765f426ecb134adcf46f7ca823c569ced3a2f3
+Proxy:			<none>
+Request params:	key=c5f676759b86029624f7dcb31ccf655e
+				token=9b60bd7325defc221aa0203822765f426ecb134adcf46f7ca823c569ced3a2f3
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+###################################################################HTTP/1.1 200 OK
+X-Dns-Prefetch-Control: off
+X-Frame-Options: DENY
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Surrogate-Control: no-store
+Cache-Control: max-age=0, must-revalidate, no-cache, no-store
+Pragma: no-cache
+Expires: Thu, 01 Jan 1970 00:00:00
+X-Trello-Version: 1.133112.0
+X-Trello-Environment: Production
+Set-Cookie: dsc=7dbaf32cb886a14ddd444e2b295c98eff6f485971c9414ab81abc729f038a5a8; Path=/; Expires=Mon, 23 May 2022 06:03:07 GMT; Secure
+Set-Cookie: preAuthProps=s%3A6092c502f3c0993906dedeb8%3AisEnterpriseAdmin%3Dfalse.Pldgfrh1OgGbRuKV1jWYmtHa6reh1uhwOqbOwq8qYDQ; Path=/; HttpOnly
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, PUT, POST, DELETE
+Access-Control-Allow-Headers: Authorization, Accept, Content-Type
+Access-Control-Expose-Headers: x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining
+X-Rate-Limit-Api-Token-Interval-Ms: 10000
+X-Rate-Limit-Api-Token-Max: 100
+X-Rate-Limit-Api-Token-Remaining: 99
+X-Rate-Limit-Api-Key-Interval-Ms: 10000
+X-Rate-Limit-Api-Key-Max: 300
+X-Rate-Limit-Api-Key-Remaining: 299
+X-Rate-Limit-Member-Interval-Ms: 10000
+X-Rate-Limit-Member-Max: 375
+X-Rate-Limit-Member-Remaining: 374
+X-Server-Time: 1653026587376
+Content-Type: application/json; charset=utf-8
+Date: Fri, 20 May 2022 06:03:07 GMT
+Content-Encoding: gzip
+X-Envoy-Upstream-Service-Time: 242
+Expect-Ct: report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge", max-age=86400
+Strict-Transport-Security: max-age=63072000; preload
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Atl-Traceid: 1352bab882e73624
+Report-To: {"group": "endpoint-1", "max_age": 600, "endpoints": [{"url": "https://dj9s4kmieytgz.cloudfront.net"}], "include_subdomains": true}
+Nel: {"report_to": "endpoint-1", "max_age": 600, "include_subdomains": true, "failure_fraction": 0.001}
+Server: globaledge-envoy
+Transfer-Encoding: chunked
+
+{
+    "id": "62847c77dd28b963065a845b",
+    "name": "MyAPIBoard",
+    "desc": "",
+    "descData": null,
+    "closed": false,
+    "idOrganization": "6092c51ec5be6965c23bd18c",
+    "idEnterprise": null,
+    "pinned": false,
+    "url": "https://trello.com/b/OIyIpjvA/myapiboard",
+    "shortUrl": "https://trello.com/b/OIyIpjvA",
+    "prefs": {
+        "permissionLevel": "private",
+        "hideVotes": false,
+        "voting": "disabled",
+        "comments": "members",
+        "invitations": "members",
+        "selfJoin": true,
+        "cardCovers": true,
+        "isTemplate": false,
+        "cardAging": "regular",
+        "calendarFeedEnabled": false,
+        "hiddenPluginBoardButtons": [
+            
+        ],
+        "background": "blue",
+        "backgroundColor": "#0079BF",
+        "backgroundImage": null,
+        "backgroundImageScaled": null,
+        "backgroundTile": false,
+        "backgroundBrightness": "dark",
+        "backgroundBottomColor": "#0079BF",
+        "backgroundTopColor": "#0079BF",
+        "canBePublic": true,
+        "canBeEnterprise": true,
+        "canBeOrg": true,
+        "canBePrivate": true,
+        "canInvite": true
+    },
+    "labelNames": {
+        "green": "",
+        "yellow": "",
+        "orange": "",
+        "red": "",
+        "purple": "",
+        "blue": "",
+        "sky": "",
+        "lime": "",
+        "pink": "",
+        "black": ""
+    }
+}
